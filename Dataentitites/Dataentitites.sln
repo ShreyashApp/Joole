@@ -9,6 +9,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "JooleRepo", "JooleRepo\Jool
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RepoBLL", "RepoBLL\RepoBLL.csproj", "{5DF21A70-2D0C-43D9-AC43-5125C22C140C}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Services", "Services\Services.csproj", "{B3A71245-4D41-45A8-AB15-8E177C4435EF}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "JooleUI", "JooleUI\JooleUI.csproj", "{FA372F66-7187-4488-A7E1-EEEF37E05389}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -27,6 +31,14 @@ Global
 		{5DF21A70-2D0C-43D9-AC43-5125C22C140C}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{5DF21A70-2D0C-43D9-AC43-5125C22C140C}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{5DF21A70-2D0C-43D9-AC43-5125C22C140C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B3A71245-4D41-45A8-AB15-8E177C4435EF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B3A71245-4D41-45A8-AB15-8E177C4435EF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B3A71245-4D41-45A8-AB15-8E177C4435EF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B3A71245-4D41-45A8-AB15-8E177C4435EF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FA372F66-7187-4488-A7E1-EEEF37E05389}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FA372F66-7187-4488-A7E1-EEEF37E05389}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FA372F66-7187-4488-A7E1-EEEF37E05389}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FA372F66-7187-4488-A7E1-EEEF37E05389}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

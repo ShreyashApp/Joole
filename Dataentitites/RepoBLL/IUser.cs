@@ -9,31 +9,33 @@ using System.Data.Entity;
 
 namespace RepoBLL
 {
-    interface IUser
+    public interface IUser:Repo<tblUser>
     {
-
-        
+               
     }
 
-    public class UserRepo : Repo<tblUser>,IUser
+    public class UserRepo : IUser
     {
-        private readonly DbContext context;
+        private DbContext context;
+
         public UserRepo(DbContext context)
         {
             this.context = context;
         }
-
-        
-             private IDbSet<tblUser> dbSet => context.Set<tblUser>();
+        private IDbSet<tblUser> dbSet => context.Set<tblUser>();
         public IQueryable<tblUser> entities => dbSet;
-        public void find(tblUser entity)
+        public tblUser find(int c)
         {
-            dbSet.Find(entity);
+            var a = context.Set<tblUser>().Find(c);
+            return a;
+    
         }
 
         public void remove(tblUser entity)
         {
             dbSet.Find(entity);
         }
+
+       
     }
 }

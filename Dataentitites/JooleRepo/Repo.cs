@@ -9,7 +9,7 @@ namespace JooleRepo
     {
 
         IQueryable<T> entities { get; }
-        void find(T entity);
+        T find(int v);
         void remove(T entity);
 
     }

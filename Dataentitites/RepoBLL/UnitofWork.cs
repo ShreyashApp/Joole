@@ -7,20 +7,21 @@ using System.Web;
 namespace RepoBLL
 {
 
-    interface unitofwork
+    interface Iunitofwork
     {
-        IUser users { get; } 
+        IUser users { get;  } 
     }
 
-    public class UnitofWork:unitofwork
+    public class UnitofWork: DbContext,Iunitofwork
     {
         private readonly DbContext context;
 
-        UnitofWork(DbContext context)
+        
+        public UnitofWork(DbContext context)
         {
             this.context = context;
         }
 
-        IUser unitofwork.users => new UserRepo(context);
+        public IUser users => new UserRepo(context);
     }
 }
