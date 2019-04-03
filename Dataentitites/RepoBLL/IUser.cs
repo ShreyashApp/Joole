@@ -22,20 +22,23 @@ namespace RepoBLL
         {
             this.context = context;
         }
-        private IDbSet<tblUser> dbSet => context.Set<tblUser>();
-        public IQueryable<tblUser> entities => dbSet;
-        public tblUser find(int c)
+        private List<tblUser> dbSet => context.Set<tblUser>().ToList();
+        public IEnumerable<tblUser> find(tblUser c)
         {
-            var a = context.Set<tblUser>().Find(c);
+            var x = dbSet;
+            var a = from s in x
+                    where s.User_Name == c.User_Name
+                    select s;
+            
             return a;
-    
+
         }
 
         public void remove(tblUser entity)
         {
-            dbSet.Find(entity);
+            //dbSet.Find(entity);
         }
 
-       
+
     }
 }

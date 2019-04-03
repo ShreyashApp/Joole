@@ -8,8 +8,7 @@ namespace JooleRepo
     public interface Repo<T> where T: class
     {
 
-        IQueryable<T> entities { get; }
-        T find(int v);
+        IEnumerable<T> find(T v);
         void remove(T entity);
 
     }

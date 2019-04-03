@@ -5,6 +5,7 @@ using System.Web;
 using RepoBLL;
 using System.Data;
 using System.Data.Entity;
+using Dataentitites;
 
 namespace Services
 {
@@ -15,14 +16,53 @@ namespace Services
 
         UnitofWork uow = new UnitofWork(context);
 
-        public string value()
+        public bool valueEmail(string uemail, string upass)
         {
 
-            var a =  uow.users.find(1);
-            if (a.User_ID!=0)
-                return a.User_Name;
+            tblUser us = new tblUser();
+            us.User_Email = uemail;
+            us.User_Password = upass;
+            List<tblUser> a = uow.users.find(us).ToList();
+            if (a.Count > 0)
+            {
+                if (a.First().User_Email == uemail && a.First().User_Password == upass)
+                {
+                    return true;
+                }
+                else
+                {
+                    return false;
+                }
+            }else
+            {
+                return false;
+            }
+            
+
+        }
+        public bool valueUser(string uname, string upass)
+        {
+
+            tblUser us = new tblUser();
+            us.User_Name = uname;
+            us.User_Password = upass;
+            List<tblUser> a = uow.users.find(us).ToList();
+            if (a.Count > 0)
+            {
+                if (a.First().User_Name == uname && a.First().User_Password == upass)
+                {
+                    return true;
+                }
+                else
+                {
+                    return false;
+                }
+            }
             else
-                return null;
+            {
+                return false;
+            }
+            
 
         }
     }
