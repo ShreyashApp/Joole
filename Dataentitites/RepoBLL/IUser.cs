@@ -9,7 +9,7 @@ using System.Data.Entity;
 
 namespace RepoBLL
 {
-    public interface IUser:Repo<tblUser>
+    public interface IUser:IRepo<tblUser>
     {
                
     }
@@ -23,15 +23,24 @@ namespace RepoBLL
             this.context = context;
         }
         private IDbSet<tblUser> dbSet => context.Set<tblUser>();
-        public IQueryable<tblUser> entities => dbSet;
-        public tblUser find(int c)
+        public IQueryable<tblUser> Entities => dbSet;
+        public tblUser Find(int c)
         {
-            var a = context.Set<tblUser>().Find(c);
+            var a = dbSet.Find(c);
             return a;
     
         }
 
-        public void remove(tblUser entity)
+        public string Search(string searchString)
+        {
+            return null;
+        }
+
+        public IQueryable<tblUser> DataSet(string filter)
+        {
+            return dbSet;
+        }
+        public void Remove(tblUser entity)
         {
             dbSet.Find(entity);
         }

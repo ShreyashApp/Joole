@@ -1,16 +1,19 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data.Entity;
 using System.Linq;
 using System.Web;
 
 namespace JooleRepo
 {
-    public interface Repo<T> where T: class
+    public interface IRepo<T> where T: class
     {
 
-        IQueryable<T> entities { get; }
-        T find(int v);
-        void remove(T entity);
+        IQueryable<T> Entities { get; }
+        T Find(int v);
+        string Search(string s);
+        IQueryable<T> DataSet(string s);
+        void Remove(T entity);
 
     }
 }

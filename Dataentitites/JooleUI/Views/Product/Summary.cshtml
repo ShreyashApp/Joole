@@ -1,7 +1,80 @@
-﻿
+﻿@model IEnumerable<JooleUI.Models.ProductVM>
+
 @{
     ViewBag.Title = "Summary";
 }
+
+<br />
+@ViewBag.Message
+<br />
+
+<form>
+    Search for products:
+    <input type="text" name="searchString">
+    <input type="submit" value="Search!">
+</form>
+
+<br />
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.productID)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.manufacturerID)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.subCategoryID)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.productName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.series)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.model)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.productTypeID)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.characteristics)
+        </th>
+    </tr>
+
+    @foreach (var product in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => product.productID)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => product.manufacturerID)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => product.subCategoryID)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => product.productName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => product.series)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => product.model)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => product.productTypeID)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => product.characteristics)
+            </td>
+        </tr>
+    }
+
+</table>
+<br />
 
 <div id="header">Header goes here</div>
 <div id="left">
