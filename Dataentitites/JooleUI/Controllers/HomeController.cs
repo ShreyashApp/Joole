@@ -17,10 +17,6 @@ namespace JooleUI.Controllers
         public ActionResult About()
         {
             Service serv = new Service();
-
-            string vals = "Your application description page." + serv.value();
-            ViewBag.Message = vals; 
-
             return View();
         }
 
