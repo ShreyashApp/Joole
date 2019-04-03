@@ -16,16 +16,14 @@ namespace Services
 
         UnitofWork uow = new UnitofWork(context);
 
+        
+
         public bool valueEmail(string uemail, string upass)
         {
-
-            tblUser us = new tblUser();
-            us.User_Email = uemail;
-            us.User_Password = upass;
-            List<tblUser> a = uow.users.find(us).ToList();
-            if (a.Count > 0)
+            List<tblUser> fliteredList = filteredList(uemail, upass);
+            if (fliteredList.Count > 0)
             {
-                if (a.First().User_Email == uemail && a.First().User_Password == upass)
+                if (fliteredList.First().User_Email == uemail && fliteredList.First().User_Password == upass)
                 {
                     return true;
                 }
@@ -40,16 +38,13 @@ namespace Services
             
 
         }
+
         public bool valueUser(string uname, string upass)
         {
-
-            tblUser us = new tblUser();
-            us.User_Name = uname;
-            us.User_Password = upass;
-            List<tblUser> a = uow.users.find(us).ToList();
-            if (a.Count > 0)
+            List<tblUser> fliteredList = filteredList(uname, upass);
+            if (fliteredList.Count > 0)
             {
-                if (a.First().User_Name == uname && a.First().User_Password == upass)
+                if (fliteredList.First().User_Name == uname && fliteredList.First().User_Password == upass)
                 {
                     return true;
                 }
@@ -62,8 +57,42 @@ namespace Services
             {
                 return false;
             }
-            
 
+
+        }
+
+        private List<tblUser> filteredList(string uname, string upass)
+        {
+            tblUser temp = new tblUser();
+            if (checker(uname) == "email")
+            {
+                temp.User_Email = uname;
+                
+            }
+            else
+            {
+                temp.User_Name = uname;
+            }
+            temp.User_Password = upass;
+            return uow.users.find(temp).ToList();
+        }
+
+        private string checker(string loginName)
+        {
+            if (loginName.Contains("@"))
+            {
+                return "email";
+            }
+            else
+            {
+                return "username";
+            }
+        }
+
+        public int getSessionID(string uname, string upass)
+        {
+            List<tblUser> fliteredList = filteredList(uname, upass);
+            return fliteredList.First().User_ID;
         }
     }
 }

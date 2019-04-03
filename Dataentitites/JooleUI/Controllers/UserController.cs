@@ -34,23 +34,27 @@ namespace JooleUI.Controllers
                 {
                     if (serv.valueEmail(temp.Login_Name, temp.User_Password))
                     {
-                        //load a search method in search controller
-                        //return Redirect("some action", "some controller");
+                        Session["userID"] = serv.getSessionID(temp.Login_Name, temp.User_Password);
+                        return RedirectToAction("Index", "Search");
                     }
                     else
                     {
                         //RedirectToAction()
+                        temp.LoginErrorMessage = "Incrrect username or password.";
+                        return View("LoginPage", temp);
                     }
                 }
                 else
                 {
                     if (serv.valueUser(temp.Login_Name, temp.User_Password))
                     {
-
+                        Session["userID"] = serv.getSessionID(temp.Login_Name, temp.User_Password);
+                        return RedirectToAction("Index", "Search");
                     }
                     else
                     {
-
+                        temp.LoginErrorMessage = "Incrrect username or password.";
+                        return View("LoginPage", temp);
                     }
                 }
             }
