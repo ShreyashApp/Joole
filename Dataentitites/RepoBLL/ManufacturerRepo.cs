@@ -8,7 +8,7 @@ using System.Data.Entity;
 
 namespace RepoBLL
 {
-    public interface IManufacturer : Repo<tblManufacturer>
+    public interface IManufacturer : IRepo<tblManufacturer>
     {
 
     }
@@ -25,10 +25,16 @@ namespace RepoBLL
 
         public IQueryable<tblManufacturer> entities => throw new NotImplementedException();
 
+        public IQueryable<tblManufacturer> Entities => throw new NotImplementedException();
+
         private DbSet<tblManufacturer> dbset => context.Set<tblManufacturer>();
 
+        public IQueryable<tblManufacturer> DataSet(string s)
+        {
+            throw new NotImplementedException();
+        }
 
-        public tblManufacturer find(int v)
+        public tblManufacturer Find(int v)
         {
             var a = dbset.Find(v);
             return a;
@@ -38,8 +44,13 @@ namespace RepoBLL
         {
             throw new NotImplementedException();
         }
-
+        
         public void remove(tblManufacturer entity)
+        {
+            throw new NotImplementedException();
+        }
+
+        public string Search(string s)
         {
             throw new NotImplementedException();
         }

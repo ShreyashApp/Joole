@@ -7,7 +7,7 @@ using System.Collections.Generic;
 
 namespace RepoBLL
 {
-    public interface IProductType : Repo<tblType>
+    public interface IProductType : IRepo<tblType>
     {
     }
 
@@ -25,7 +25,9 @@ namespace RepoBLL
 
         public IQueryable<tblType> entities => throw new NotImplementedException();
 
-        public tblType find(int v)
+        public IQueryable<tblType> Entities => throw new NotImplementedException();
+
+        public tblType Find(int v)
         {
             var a = dbset.Find(v);
             return a;
@@ -37,6 +39,16 @@ namespace RepoBLL
         }
 
         public IEnumerable<tblType> find(tblType v)
+        {
+            throw new NotImplementedException();
+        }
+
+        public string Search(string s)
+        {
+            throw new NotImplementedException();
+        }
+
+        public IQueryable<tblType> DataSet(string s)
         {
             throw new NotImplementedException();
         }

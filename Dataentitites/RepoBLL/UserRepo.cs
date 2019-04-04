@@ -9,7 +9,7 @@ using System.Data.Entity;
 
 namespace RepoBLL
 {
-    public interface IUser:Repo<tblUser>
+    public interface IUser:IRepo<tblUser>
     {
                
     }
@@ -22,7 +22,15 @@ namespace RepoBLL
         {
             this.context = context;
         }
+
+        public IQueryable<tblUser> Entities => throw new NotImplementedException();
+
         private List<tblUser> dbSet => context.Set<tblUser>().ToList();
+
+        public IQueryable<tblUser> DataSet(string s)
+        {
+            throw new NotImplementedException();
+        }
 
         /*
          * this method will query through a given list and find a row based on either the username or email and return
@@ -43,11 +51,19 @@ namespace RepoBLL
             throw new NotImplementedException();
         }
 
+        public tblUser Find(int v)
+        {
+            throw new NotImplementedException();
+        }
+
         public void remove(tblUser entity)
         {
             //dbSet.Find(entity);
         }
 
-
+        public string Search(string s)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

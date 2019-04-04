@@ -77,9 +77,9 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ManufacturerRepo.cs" />
-    <Compile Include="ProductsRepo.cs" />
     <Compile Include="ProductTypeRepo.cs" />
     <Compile Include="UserRepo.cs" />
+    <Compile Include="ProductRepo.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="UnitofWork.cs" />
   </ItemGroup>
