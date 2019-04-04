@@ -72,9 +72,21 @@
             </td>
         </tr>
     }
-
 </table>
 <br />
+
+@foreach (var product in Model)
+{
+    <div style="border: 3px solid gray; text-align: center; display: inline-block; width: 200px; height: 400px;">
+        Image goes here.<br />
+        <b>@Html.DisplayFor(modelItem => product.productName)</b><br />
+        <b>@Html.DisplayFor(modelItem => product.series)</b><br />
+        <b>@Html.DisplayFor(modelItem => product.model)</b><br />
+        @Html.DisplayFor(modelItem => product.characteristics)<br />
+        <input type="checkbox" name="compare" value="Compare" /> <b>Compare</b>
+        <button id="addTo">Add to</button>
+    </div>
+}
 
 <div id="header">Header goes here</div>
 <div id="left">
