@@ -49,13 +49,10 @@ namespace Services
                         return false;
                     }
                 }
-                
             }else
             {
                 return false;
             }
-
-
         }
         
         /*
@@ -107,6 +104,25 @@ namespace Services
         {
             List<tblUser> fliteredList = filteredList(uname, upass);
             return fliteredList.First().User_ID;
+        }
+
+
+
+
+
+
+
+        //some additional work
+        public List<tblCategory> getCategories()
+        {
+            
+
+            return null;
+        }
+
+        public List<tblSubCategory> GetSubCategories()
+        {
+            return null;
         }
     }
 }
