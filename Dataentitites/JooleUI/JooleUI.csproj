@@ -141,12 +141,9 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-<<<<<<< HEAD
     <Compile Include="Models\Products.cs" />
-=======
     <Compile Include="Models\Search.cs" />
     <Compile Include="Models\UserLogin.cs" />
->>>>>>> bbcfbd5b098f768872ac2cfc04513109918bbbac
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -185,12 +182,9 @@
     <Content Include="Views\Home\About.cshtml" />
     <Content Include="Views\Home\Contact.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
-<<<<<<< HEAD
     <Content Include="Views\Home\GridView.cshtml" />
-=======
     <Content Include="Views\User\LoginPage.cshtml" />
     <Content Include="Views\Search\Index.cshtml" />
->>>>>>> bbcfbd5b098f768872ac2cfc04513109918bbbac
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

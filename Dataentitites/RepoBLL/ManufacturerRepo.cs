@@ -34,6 +34,11 @@ namespace RepoBLL
             return a;
         }
 
+        public IEnumerable<tblManufacturer> find(tblManufacturer v)
+        {
+            throw new NotImplementedException();
+        }
+
         public void remove(tblManufacturer entity)
         {
             throw new NotImplementedException();

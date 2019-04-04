@@ -25,8 +25,7 @@ namespace RepoBLL
         }
 
         private DbSet<tblProduct> dbset => context.Set<tblProduct>();
-        IQueryable<tblProduct> Repo<tblProduct>.entities => dbset;
-
+        
         public void remove(tblProduct entity)
         {
             throw new NotImplementedException();
@@ -36,6 +35,11 @@ namespace RepoBLL
         {
             var a = dbset.Find(v);
             return a;
+        }
+
+        public IEnumerable<tblProduct> find(tblProduct v)
+        {
+            throw new NotImplementedException();
         }
     }
 }

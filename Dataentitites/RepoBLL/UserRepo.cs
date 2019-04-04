@@ -38,6 +38,11 @@ namespace RepoBLL
 
         }
 
+        public tblUser find(int v)
+        {
+            throw new NotImplementedException();
+        }
+
         public void remove(tblUser entity)
         {
             //dbSet.Find(entity);

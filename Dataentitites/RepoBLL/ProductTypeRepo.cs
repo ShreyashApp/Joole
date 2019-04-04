@@ -3,6 +3,7 @@ using System.Linq;
 using JooleRepo;
 using Dataentitites;
 using System.Data.Entity;
+using System.Collections.Generic;
 
 namespace RepoBLL
 {
@@ -31,6 +32,11 @@ namespace RepoBLL
         }
 
         public void remove(tblType entity)
+        {
+            throw new NotImplementedException();
+        }
+
+        public IEnumerable<tblType> find(tblType v)
         {
             throw new NotImplementedException();
         }
