@@ -10,12 +10,10 @@ namespace JooleUI.Controllers
 {
     public class UserController : Controller
     {
-        // GET: User
-        public ActionResult Index()
-        {
-            return View();
-        }
-
+        /*
+         * 
+         * This method will be called by the page when the user load the page at first. 
+         */
         [HttpGet]
         public ActionResult LoginPage()
         {
@@ -23,53 +21,28 @@ namespace JooleUI.Controllers
             return View(temp);
         }
 
+        /*
+         *
+         * This method will retrive the login information from user and check if the login is accurate
+         */
         [HttpPost]
         public ActionResult LoginPage(UserLogin temp)
         {
             Service serv = new Service();
-
             if (ModelState.IsValid)
             {
-                if (loginUser(temp) == "email")
-                {
-                    if (serv.valueEmail(temp.Login_Name, temp.User_Password))
+                    if (serv.authentication(temp.Login_Name, temp.User_Password))
                     {
-                        //load a search method in search controller
-                        //return Redirect("some action", "some controller");
+                        Session["userID"] = serv.getSessionID(temp.Login_Name, temp.User_Password);
+                        return RedirectToAction("Index", "Search");
                     }
                     else
                     {
-                        //RedirectToAction()
+                        temp.LoginErrorMessage = "Incrrect username or password.";
+                        return View("LoginPage", temp);
                     }
-                }
-                else
-                {
-                    if (serv.valueUser(temp.Login_Name, temp.User_Password))
-                    {
-
-                    }
-                    else
-                    {
-
-                    }
-                }
             }
-            
-
             return View();
-        }
-
-
-        public string loginUser(UserLogin temp)
-        {
-            if (temp.Login_Name.Contains("@"))
-            {
-                return "email";
-            }
-            else
-            {
-                return "username";
-            }
         }
     }
 }
