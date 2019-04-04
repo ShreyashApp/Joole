@@ -54,8 +54,6 @@ namespace Services
             {
                 return false;
             }
-
-
         }
         
         /*
@@ -171,6 +169,14 @@ namespace Services
             return a;
         }
 
+        public List<tblCategory> getCategories()
+        {
+            return null;
+        }
 
+        public List<tblSubCategory> GetSubCategories()
+        {
+            return null;
+        }
     }
 }
