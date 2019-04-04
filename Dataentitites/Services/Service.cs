@@ -5,6 +5,7 @@ using System.Web;
 using RepoBLL;
 using System.Data;
 using System.Data.Entity;
+using Dataentitites;
 
 namespace Services
 {
@@ -25,5 +26,29 @@ namespace Services
                 return null;
 
         }
+
+        public tblProduct value(int c)
+        {
+
+            var a = uow.prods.find(c);
+           
+            return a;
+        }
+
+        public tblManufacturer manudetails(int c)
+        {
+            var a = uow.manu.find(c);
+
+            return a;
+        }
+
+        public tblType typedetails(int c)
+        {
+            var a = uow.prodtype.find(c);
+
+            return a;
+        }
+
+
     }
 }

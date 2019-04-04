@@ -94,3 +94,5 @@ C:\Users\SVP\Joole\Dataentitites\JooleUI\obj\Debug\JooleUI.dll
 C:\Users\SVP\Joole\Dataentitites\JooleUI\obj\Debug\JooleUI.pdb
 C:\Users\SVP\Joole\Dataentitites\JooleUI\bin\EntityFramework.SqlServer.dll
 C:\Users\SVP\Joole\Dataentitites\JooleUI\bin\EntityFramework.SqlServer.xml
+C:\Users\SVP\Joole\Dataentitites\JooleUI\bin\Json.dll
+C:\Users\SVP\Joole\Dataentitites\JooleUI\bin\Json.pdb
