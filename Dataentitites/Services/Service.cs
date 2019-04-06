@@ -171,12 +171,12 @@ namespace Services
 
         public List<tblCategory> getCategories()
         {
-            return null;
+            return uow.categorySearch.GetListCategory().ToList();
         }
 
-        public List<tblSubCategory> GetSubCategories()
+        public List<tblSubCategory> GetSubCategories(int categoryID)
         {
-            return null;
+            return uow.subCategorySearch.getSubCategoBasedOnCatego(categoryID).ToList();
         }
     }
 }

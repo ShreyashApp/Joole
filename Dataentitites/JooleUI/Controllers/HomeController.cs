@@ -47,10 +47,10 @@ namespace JooleUI.Controllers
                 val.Series = a.Series;
                 val.Product_Image = a.Product_Image;
                 val.Charecteristics = a.Characteristics;
-                JObject json = JObject.Parse(a.Characteristics);
-                val.Object = json;
-                foreach(var key in json)
-                Response.Write(key.Value);
+                //JObject json = JObject.Parse(a.Characteristics);
+                //val.Object = json;
+                //foreach(var key in json)
+                //Response.Write(key.Value);
                 var b = serv.manudetails(a.Manufacturer_ID);
                 val.Manufacturer_Name = b.Manufacturer_Name;
                 var c = serv.typedetails(a.ProductTypeID);

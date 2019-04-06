@@ -5,11 +5,14 @@ using System.Web;
 
 namespace JooleUI.Models
 {
-    public class Search
+    public class Category
     {
-
-        public string searchQuery{ get; set; }
         public string Category_Name { get; set; }
-        public string SubCategory_Name { get; set; }
+        public List<string> SubCategory_Name { get; set; }
+
+    }
+    public class SubCategory
+    {
+        public List<string> SubCategory_Name { get; set; }
     }
 }

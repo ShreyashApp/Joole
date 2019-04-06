@@ -15,7 +15,7 @@ namespace RepoBLL
 
     public interface ISearchtblSubCategory : IRepo<tblSubCategory>
     {
-        IEnumerable<tblSubCategory> GetListSubCategory();
+        IEnumerable<tblSubCategory> getSubCategoBasedOnCatego(int categoryID);
     }
 
     public class SearchRepo : ISearchtblCategory, ISearchtblSubCategory
@@ -41,9 +41,9 @@ namespace RepoBLL
             return CategoriesList;
         }
 
-        public IEnumerable<tblSubCategory> GetListSubCategory()
+        public IEnumerable<tblSubCategory> getSubCategoBasedOnCatego(int categoryID)
         {
-            return subCategoriesList;
+            return subCategoriesList.Where(p => p.Category_ID == categoryID);
         }
 
         public IEnumerable<tblCategory> find(tblCategory v)
