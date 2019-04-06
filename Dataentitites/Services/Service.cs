@@ -56,5 +56,10 @@ namespace Services
         {
             return uow.products.DataSet(filter);
         }
+
+        public IQueryable<tblType> GetTypeDataSet(string filter)
+        {
+            return uow.types.DataSet(filter);
+        }
     }
 }

@@ -9,28 +9,27 @@ using System.Data.Entity;
 
 namespace RepoBLL
 {
-    public interface IUser:IRepo<tblUser>
+    public interface IType:IRepo<tblType>
     {
-               
-    }
 
-    public class UserRepo : IUser
+    }
+    public class TypeRepo : IType
     {
         private DbContext context;
 
-        public UserRepo(DbContext context)
+        public TypeRepo(DbContext context)
         {
             this.context = context;
         }
 
-        private IDbSet<tblUser> dbSet => context.Set<tblUser>();
-        public IQueryable<tblUser> Entities => dbSet;
+        private IDbSet<tblType> dbSet => context.Set<tblType>();
+        public IQueryable<tblType> Entities => dbSet;
 
-        public tblUser Find(int c)
+        public tblType Find(int c)
         {
             var a = dbSet.Find(c);
             return a;
-    
+
         }
 
         public string Search(string searchString)
@@ -38,14 +37,15 @@ namespace RepoBLL
             return null;
         }
 
-        public IQueryable<tblUser> DataSet(string filter)
+        public IQueryable<tblType> DataSet(string filter)
         {
             return dbSet;
         }
 
-        public void Remove(tblUser entity)
+        public void Remove(tblType entity)
         {
             dbSet.Find(entity);
-        } 
+        }
+
     }
 }
