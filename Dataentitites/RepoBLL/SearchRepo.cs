@@ -1,17 +1,27 @@
 ﻿using System;
 using System.Collections.Generic;
+
 using System.Linq;
 using System.Web;
 using Dataentitites;
 using JooleRepo;
 using System.Data.Entity;
 
+
 namespace RepoBLL
 {
+    public interface ISearchtblCategory : IRepo<tblCategory>
+    {
+        IEnumerable<tblCategory> GetListCategory();
+    }
+
+    public interface ISearchtblSubCategory : IRepo<tblSubCategory>
+    {
+        IEnumerable<tblSubCategory> GetListSubCategory();
+    }
 
     public class SearchRepo : ISearchtblCategory, ISearchtblSubCategory
     {
-
         DbContext Context;
 
         public SearchRepo(DbContext context)
@@ -19,8 +29,25 @@ namespace RepoBLL
             this.Context = context;
         }
 
+        public IQueryable<tblCategory> Entities => throw new NotImplementedException();
+
+        IQueryable<tblSubCategory> IRepo<tblSubCategory>.Entities => throw new NotImplementedException();
+
+
         private List<tblCategory> CategoriesList => Context.Set<tblCategory>().ToList();
         private List<tblSubCategory> subCategoriesList => Context.Set<tblSubCategory>().ToList();
+
+        public IEnumerable<tblCategory> GetListCategory()
+        {
+
+            return CategoriesList;
+        }
+
+        public IEnumerable<tblSubCategory> GetListSubCategory()
+        {
+            return subCategoriesList;
+        }
+
         public IEnumerable<tblCategory> find(tblCategory v)
         {
             var filteredList = CategoriesList.Where(current => current.Category_Name == v.Category_Name);
@@ -33,12 +60,16 @@ namespace RepoBLL
             return filteredList;
         }
 
-        public void remove(tblCategory entity)
+        
+
+        public IQueryable<tblCategory> DataSet(string s)
         {
             throw new NotImplementedException();
         }
 
-        public void remove(tblSubCategory entity)
+        
+
+        public tblCategory Find(int v)
         {
             throw new NotImplementedException();
         }
@@ -51,6 +82,26 @@ namespace RepoBLL
         IEnumerable<tblSubCategory> ISearchtblSubCategory.GetList()
         {
             return subCategoriesList;
+        
+        public void remove(tblCategory entity)
+        {
+            throw new NotImplementedException();
+        }
+        public void remove(tblSubCategory entity)
+        {
+            throw new NotImplementedException();
+        }
+        public string Search(string s)
+        {
+            throw new NotImplementedException();
+        }
+        IQueryable<tblSubCategory> IRepo<tblSubCategory>.DataSet(string s)
+        {
+            throw new NotImplementedException();
+        }
+        tblSubCategory IRepo<tblSubCategory>.Find(int v)
+        {
+            throw new NotImplementedException();
         }
     }
 }
