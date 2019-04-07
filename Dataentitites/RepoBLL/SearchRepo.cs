@@ -1,10 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Data.Entity;
+
 using System.Linq;
 using System.Web;
 using Dataentitites;
 using JooleRepo;
+using System.Data.Entity;
+
 
 namespace RepoBLL
 {
@@ -72,6 +74,14 @@ namespace RepoBLL
             throw new NotImplementedException();
         }
 
+        public IEnumerable<tblCategory> GetList()
+        {
+            return CategoriesList;
+        }
+
+        IEnumerable<tblSubCategory> ISearchtblSubCategory.GetList()
+        {
+            return subCategoriesList;
         
         public void remove(tblCategory entity)
         {
