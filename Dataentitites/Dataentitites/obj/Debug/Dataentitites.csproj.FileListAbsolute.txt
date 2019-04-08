@@ -112,7 +112,6 @@ C:\Users\alkha\Documents\training itlize\project1\finalFork\Version2\Joole\Datae
 C:\Users\alkha\Documents\training itlize\project1\finalFork\Version2\Joole\Dataentitites\Dataentitites\bin\EntityFramework.xml
 C:\Users\alkha\Documents\training itlize\project1\finalFork\Version2\Joole\Dataentitites\Dataentitites\bin\EntityFramework.SqlServer.xml
 C:\Users\alkha\Documents\training itlize\project1\finalFork\Version2\Joole\Dataentitites\Dataentitites\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
-C:\Users\alkha\Documents\training itlize\project1\finalFork\Version2\Joole\Dataentitites\Dataentitites\obj\Debug\Dataentitites.csprojAssemblyReference.cache
 C:\Users\alkha\Documents\training itlize\project1\finalFork\Version2\Joole\Dataentitites\Dataentitites\obj\Debug\Dataentitites.csproj.CoreCompileInputs.cache
 C:\Users\alkha\Documents\training itlize\project1\finalFork\Version2\Joole\Dataentitites\Dataentitites\obj\Debug\Dataentitites.csproj.CopyComplete
 C:\Users\alkha\Documents\training itlize\project1\finalFork\Version2\Joole\Dataentitites\Dataentitites\obj\Debug\Dataentitites.dll

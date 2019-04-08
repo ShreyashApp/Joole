@@ -7,14 +7,65 @@
 
 <html>
 <head>
+
     <meta name="viewport" content="width=device-width" />
     <title>Index</title>
 </head>
 <body>
     <div>
-        @Html.DropDownList("Category", "Select Category")
-        
-        
+
+
+        @using (@Html.BeginForm())
+        {
+            @Html.DropDownList("Category", null, "")
+            @Html.TextBox("SearchQuery", null, new { id = "searchBox" })
+
+            <input type="submit" value="Search" />
+        }
+        <p>hello world</p>
+
+        <!--
+
+        public static MvcHtmlString DropDownList(this HtmlHelper htmlHelper, string name, IEnumerable<SelectListItem> selectList, object htmlAttributes)
+        public static MvcHtmlString DropDownList(this HtmlHelper htmlHelper, string name, IEnumerable<SelectListItem> selectList, string optionLabel, object htmlAttributes);
+            //
+    // Summary:
+    //     Returns a single-selection select element using the specified HTML helper, the
+    //     name of the form field, the specified list items, an option label, and the specified
+    //     HTML attributes.
+    //
+    // Parameters:
+    //   htmlHelper:
+    //     The HTML helper instance that this method extends.
+    //
+    //   name:
+    //     The name of the form field to return.
+    //
+    //   selectList:
+    //     A collection of System.Web.Mvc.SelectListItem objects that are used to populate
+    //     the drop-down list.
+    //
+    //   optionLabel:
+    //     The text for a default empty item. This parameter can be null.
+    //
+    //   htmlAttributes:
+    //     An object that contains the HTML attributes to set for the element.
+    //
+    // Returns:
+    //     An HTML select element with an option subelement for each item in the list.
+    //
+    // Exceptions:
+    //   T:System.ArgumentException:
+    //     The name parameter is null or empty.
+
+
+        -->
+        <!-- the code should go around here, geting data from viewbag, and creating sublist, and then getting the last thing after the user put some query in the search box and click on search-->
+
+        <script type="text/javascript">
+
+
+        </script>
     </div>
 </body>
 </html>
