@@ -145,7 +145,6 @@ namespace Services
         {
             return uow.products.DataSet(filter);
         }
-
         public tblProduct value(int c)
         {
 
@@ -176,6 +175,10 @@ namespace Services
         public List<tblSubCategory> GetSubCategories()
         {
             return null;
+        }
+        public IQueryable<tblType> GetTypeDataSet(string filter)
+        {
+            return uow.types.DataSet(filter);
         }
     }
 }

@@ -8,8 +8,6 @@
 
 <h2>Product Summary</h2>
 
-<input id="btnGet" type="button" name=" submit" />
-
 
 <div class="col-md-12"style="display:inline-block">
     <div style="float:left;text-align:left;width:50%;" >
@@ -28,7 +26,7 @@
 </div>
 @section scripts{
     <script>
-        $("#btnGet").click(function () {
+        $(document).ready(function () {
             console.log("Hellowthere");
             $.ajax({
                 type: "POST",

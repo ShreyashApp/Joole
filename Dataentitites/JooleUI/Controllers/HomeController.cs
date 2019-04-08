@@ -10,19 +10,20 @@ namespace JooleUI.Controllers
 {
     public class HomeController : Controller
     {
-        public ActionResult Summa()
+        public ActionResult Summa(int id)
         {
+            TempData["ids"] = id;
             return View();
         }
 
         public JsonResult Summ()
         {
+            int vag = (int)TempData["ids"];
             Service serv = new Service();
             List<Products> va = new List<Products>();
-            for (int i = 1; i < 2; i++)
             {
                 Products val = new Products();
-                var a = serv.value(i);
+                var a = serv.value(vag);
                 val.Product_Name = a.Product_Name;
                 val.Model = a.Model;
                 val.Series = a.Series;
@@ -49,14 +50,20 @@ namespace JooleUI.Controllers
             return View();
         }
 
-        public JsonResult Black()
+        public ActionResult Black()
         {
+            return View();
+        }
+
+        public JsonResult Blacks()
+        {
+            int[] comp = (int[])TempData["camp"];
             Service serv = new Service();
             List<Products> va = new List<Products>();
-            for (int i = 1; i < 3; i++)
+            for (int i = 0; i < comp.Length; i++)
             {
                 Products val = new Products();
-                var a = serv.value(i);
+                var a = serv.value(comp[i]);
                 val.Product_Name = a.Product_Name;
                 val.Model = a.Model;
                 val.Series = a.Series;

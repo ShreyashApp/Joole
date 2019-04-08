@@ -58,7 +58,7 @@ namespace RepoBLL
 
         public void remove(tblUser entity)
         {
-            //dbSet.Find(entity);
+           // dbSet.Find(entity);
         }
 
         public string Search(string s)
