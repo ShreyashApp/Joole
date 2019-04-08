@@ -3,7 +3,24 @@
     ViewBag.Title = "Summary";
 }
 <style>
+    a.my-class {
+        color: #ff0000
+    }
 
+        a.my-class:active {
+            color: #0e86f8
+        }
+
+        a.my-class:link {
+            color: #ff0000
+        }
+        a.my-class:hover{
+            color:#ff6a00
+        }
+
+        a.my-class:visited {
+            color: #CCCCCC
+        }
     .column {
         float: left;
         padding: 10px;
@@ -17,14 +34,16 @@
         width: 75%;
     }
 </style>
-<br />
-@ViewBag.Message
-<br />
-<form style="text-align: center;">
-    Search for products:
-    <input type="text" name="searchString">
-    <input type="submit" value="Search!">
-</form>
+<header>
+    <div style="height:100px">
+        <img width="150" src="~/Images/Joole.png" style="float:left"/>
+        <form style="color:black;font:bold;width:700px;">
+            Search for products:
+            <input type="text" name="searchString">
+            <input class="btn-primary" type="submit" value="Search!">
+        </form>
+    </div>
+</header>
 <br />
 <div class="row">
     <form class="column left" style="background-color:#eee;">
@@ -44,7 +63,8 @@
             {
             <div id="@Html.DisplayFor(modelItem => product.productID)" style="border: 3px solid gray; text-align: center; display: inline-block; width: 200px; height: 400px;" onclick="myFunction(this)">
                 Image goes here.<br />
-                @Html.ActionLink(""+@Html.DisplayFor(modelItem => product.productName)+"", "Summa",  "Home" , new { id = @Html.DisplayFor(modelItem => product.productID) },null)<br />
+                @Html.ActionLink(""+@Html.DisplayFor(modelItem => product.productName)+"", "Summa",  "Home" , new { id = @Html.DisplayFor(modelItem => product.productID) }, new { @class = "my-class" })
+                    <br />
                 <b>@Html.DisplayFor(modelItem => product.series)</b><br />
                 <b>@Html.DisplayFor(modelItem => product.model)</b><br />
                 @*@foreach (var c in product.characteristics)

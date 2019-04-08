@@ -2,15 +2,20 @@
 
 @{
     ViewBag.Title = "Black";
-    Layout = "~/Views/Shared/_Layout.cshtml";
+   
 }
 
-<h2>Product Compare</h2>
-
-<table class="table" id="table" border="1">
-    <tbody></tbody>
-</table>
-
+<style>
+    th{
+        background-color:ghostwhite
+    }
+</style>
+<div style="background-color:white">
+    <h2>Product Compare</h2>
+    <table class="table" id="table" border="1">
+        <tbody></tbody>
+    </table>
+</div>
 @section scripts{
     <script>
         $(document).ready(function () {
@@ -45,6 +50,33 @@
                     $.each(dats, function (key, val) {
                         $("#th" + i).append("<td colspan='2' id = 'tdf'>" + val.Manufacturer_Name + "</td>");
                     });
+                    $("tbody").append("<tr  id='thy'><th>Type</th></tr>");
+                    i = i + 1;
+                    $("tbody").append("<tr id='th" + i + "'><th>Model</th></tr>");
+                    $.each(dats, function (key, val) {
+                        $("#th" + i).append("<td colspan='2' id = 'tdf'>" + val.Model + "</td>");
+                    });
+                    i = i + 1;
+                    $("tbody").append("<tr id='th" + i + "'><th>Model Year</th></tr>");
+                    $.each(dats, function (key, val) {
+                        $("#th" + i).append("<td colspan='2' id = 'tdf'>" + val.ModelYear + "</td>");
+                    });
+                    i = i + 1;
+                    $("tbody").append("<tr id='th" + i + "'><th>Applicatin</th></tr>");
+                    $.each(dats, function (key, val) {
+                        $("#th" + i).append("<td colspan='2' id = 'tdf'>" + val.Application + "</td>");
+                    });
+                    i = i + 1;
+                    $("tbody").append("<tr id='th" + i + "'><th>Mounting Location</th></tr>");
+                    $.each(dats, function (key, val) {
+                        $("#th" + i).append("<td colspan='2' id = 'tdf'>" + val.MountingLocation + "</td>");
+                    });
+                    i = i + 1;
+                    $("tbody").append("<tr id='th" + i + "'><th>Use Type</th></tr>");
+                    $.each(dats, function (key, val) {
+                        $("#th" + i).append("<td colspan='2' id = 'tdf'>" + val.UseType + "</td>");
+                    });
+
                     $("tbody").append("<tr  id='thy'><th>Technical Specification</th></tr>");
                     i = i + 1;
                     $.each(dats, function (key, val) {
@@ -66,31 +98,6 @@
                             ks = ks + 1;
 
                         });
-                    });
-                    i = i + 1;
-                    $("tbody").append("<tr id='th" + i + "'><th>Model</th><tr>");
-                    $.each(dats, function (key, val) {
-                        $("#th" + i).append("<td colspan='2' id = 'tdf'>" + val.Model + "</td>");
-                    });
-                    i = i + 1;
-                    $("tbody").append("<tr id='th" + i + "'><th>Manufacturer Name</th><tr>");
-                    $.each(dats, function (key, val) {
-                        $("#th" + i).append("<td colspan='2' id = 'tdf'>" + val.ModelYear + "</td>");
-                    });
-                    i = i + 1;
-                    $("tbody").append("<tr id='th" + i + "'><th>Manufacturer Name</th></tr>");
-                    $.each(dats, function (key, val) {
-                        $("#th" + i).append("<td colspan='2' id = 'tdf'>" + val.Application + "</td>");
-                    });
-                    i = i + 1;
-                    $("tbody").append("<tr id='th" + i + "'><th>Manufacturer Name</th></tr>");
-                    $.each(dats, function (key, val) {
-                        $("#th" + i).append("<td colspan='2' id = 'tdf'>" + val.MountingLocation + "</td>");
-                    });
-                    i = i + 1;
-                    $("tbody").append("<tr id='th" + i + "'><th>Manufacturer Name</th></tr>");
-                    $.each(dats, function (key, val) {
-                        $("#th" + i).append("<td colspan='2' id = 'tdf'>" + val.UseType + "</td>");
                     });
                     console.log(response + "Hello");
                 },

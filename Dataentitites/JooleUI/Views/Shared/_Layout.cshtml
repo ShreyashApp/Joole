@@ -4,10 +4,11 @@
     <meta charset="utf-8" />
     <title>@ViewBag.Title - Joole</title>
     @Styles.Render("~/Content/css")
+    @Styles.Render("~/CSS/Main.css")
     @Scripts.Render("~/bundles/modernizr")
 </head>
 <body>
-    <div style="background-image:linear-gradient(blue,white);text-align:center;">
+    <div>
         @RenderBody()
     </div>
 </body>
