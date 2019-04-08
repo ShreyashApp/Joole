@@ -12,14 +12,14 @@
         }
 
         a.my-class:link {
-            color: #ff0000
+            color: black
         }
         a.my-class:hover{
-            color:#ff6a00
+            color:black
         }
 
         a.my-class:visited {
-            color: #CCCCCC
+            color:black
         }
     .column {
         float: left;
@@ -35,35 +35,35 @@
     }
 </style>
 <header>
-    <div style="height:100px">
-        <img width="150" src="~/Images/Joole.png" style="float:left"/>
-        <form style="color:black;font:bold;width:700px;">
-            Search for products:
+    <div style="height:80px;text-align:center;margin-top:50px;margin-left:160px">
+        <img width="150" src="~/Images/Joole.bmp" style="float:left"/>
+        <form style="color:black;font:bold;width:700px;margin-left:50px">
+            <b>Search for products:</b>
             <input type="text" name="searchString">
-            <input class="btn-primary" type="submit" value="Search!">
+            <input class="btn btn-primary" type="submit" value="Search!">
         </form>
     </div>
 </header>
 <br />
-<div class="row">
-    <form class="column left" style="background-color:#eee;">
-        <div style="padding-bottom: 5px; border-bottom-style: solid; text-align: center;">Search: <input type="submit" class="btn btn-primary" value="Save"> <button class="btn btn-primary" id="clear">Clear</button></div>
-        <div style="padding-top: 5px; padding-bottom: 5px; border-bottom-style: solid; text-align: center;">Product | Project</div>
-        <div style="padding-top: 5px; padding-bottom: 5px; border-bottom-style: solid;">Product Type</div>
-        <div style="padding-top: 5px; padding-bottom: 5px; border-bottom-style: solid; text-align: center;">
+<div class="row" style="background-color:white">
+    <form class="column left" style="background-color:ghostwhite" >
+        <div style="padding-bottom: 5px;border-top-style:solid; border-bottom-style: solid;border-right-style:solid; text-align: center;">Search: <input type="submit" class="btn btn-primary" value="Save"> <button class="btn btn-primary" id="clear">Clear</button></div>
+        <div style="padding-top: 5px; padding-bottom: 5px; border-bottom-style: solid;border-right-style:solid; text-align: center;">Product | Project</div>
+        <div style="padding-top: 5px; padding-bottom: 5px; border-bottom-style: solid;border-right-style:solid;">Product Type</div>
+        <div style="padding-top: 5px; padding-bottom: 5px; border-bottom-style: solid; text-align: center;border-right-style:solid;">
             Model Year:
             <input type="text" name="beginningYear" maxlength="4" size="4"> - <input type="text" name="endingYear" maxlength="4" size="4">
         </div>
-        <div style="padding-top: 5px; padding-bottom: 5px; border-bottom-style: solid;">Technical Specifications</div>
+        <div style="padding-top: 5px; padding-bottom: 5px; border-bottom-style: solid;border-right-style:solid;">Technical Specifications</div>
         <div id="techspec" style="padding-top: 5px;">Technical specifications go here</div>
     </form>
-    <div class="column right">
+    <div class="column">
         <form>
             @foreach (var product in Model)
             {
             <div id="@Html.DisplayFor(modelItem => product.productID)" style="border: 3px solid gray; text-align: center; display: inline-block; width: 200px; height: 400px;" onclick="myFunction(this)">
                 Image goes here.<br />
-                @Html.ActionLink(""+@Html.DisplayFor(modelItem => product.productName)+"", "Summa",  "Home" , new { id = @Html.DisplayFor(modelItem => product.productID) }, new { @class = "my-class" })
+                                <b> @Html.ActionLink("" + @Html.DisplayFor(modelItem => product.productName) + "", "Summa", "Home", new { id = @Html.DisplayFor(modelItem => product.productID) }, new { @class = "my-class" })</b>
                     <br />
                 <b>@Html.DisplayFor(modelItem => product.series)</b><br />
                 <b>@Html.DisplayFor(modelItem => product.model)</b><br />
