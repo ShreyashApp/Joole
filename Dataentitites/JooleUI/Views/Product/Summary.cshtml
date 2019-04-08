@@ -20,7 +20,7 @@
 <br />
 @ViewBag.Message
 <br />
-<form>
+<form style="text-align: center;">
     Search for products:
     <input type="text" name="searchString">
     <input type="submit" value="Search!">
@@ -29,8 +29,8 @@
 
 <div class="row">
     <form class="column left" style="background-color:#eee;">
-        <div style="padding-bottom: 5px; border-bottom-style: solid; text-align: center;">Search: <input type="submit" value="Save"><button id="clear">Clear</button></div>
-        <div style="padding-top: 5px; padding-bottom: 5px; border-bottom-style: solid; text-align: center;"><button id="product">Product</button><button id="project">Project</button></div>
+        <div style="padding-bottom: 5px; border-bottom-style: solid; text-align: center;">Search: <input type="submit" class="btn btn-primary" value="Save"> <button class="btn btn-primary" id="clear">Clear</button></div>
+        <div style="padding-top: 5px; padding-bottom: 5px; border-bottom-style: solid; text-align: center;">Product | Project</div>
         <div style="padding-top: 5px; padding-bottom: 5px; border-bottom-style: solid;">Product Type</div>
         <div style="padding-top: 5px; padding-bottom: 5px; border-bottom-style: solid; text-align: center;">
             Model Year:
@@ -53,8 +53,8 @@
                             @Html.DisplayFor(modelItem => c)<br />
                         }
                         @Html.DisplayFor(modelItem => product.characteristics)<br />*@
-                    <input type="checkbox" name="compare[]" value=@Html.DisplayFor(modelItem => product.productID) /> <b>Compare</b>
-                    <button id="addTo">Add to</button>
+                    <input type="checkbox" name="compare" value=@Html.DisplayFor(modelItem => product.productID) /> <b>Compare</b>
+                    <input class="btn btn-primary" type="submit" value="Add to">
                 </div>
                 <script>
                     function myFunction(item) {

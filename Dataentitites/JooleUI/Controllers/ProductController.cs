@@ -18,7 +18,7 @@ namespace JooleUI.Controllers
             return View();
         }
 
-        public ActionResult Summary(string searchString, string beginningYear, string endingYear)
+        public ActionResult Summary(string searchString, string beginningYear, string endingYear, int[] compare)
         {
             Service serv = new Service();
             string vals = "";
@@ -36,6 +36,18 @@ namespace JooleUI.Controllers
             List <ProductVM> productList = new List<ProductVM>();
             var de = serv.GetDataSet(null).AsEnumerable();
             var tde = serv.GetTypeDataSet(null).AsEnumerable();
+            if (compare != null && compare.Length > 0)
+            {
+                de = de.Where(id => compare.Contains(id.Product_ID));
+                foreach (var product in de)
+                {
+                    productList.Add(new ProductVM(product.Product_ID, product.Manufacturer_ID, product.SubCategory_ID,
+                        product.Product_Name, product.Series, product.Model, product.ProductTypeID, product.Characteristics));
+                }
+                return View("Compare", productList);
+                //return RedirectToAction("Compare", new {compare});
+            }
+
             if (!String.IsNullOrEmpty(searchString))
             {
                 de = de.Where(product => product.Product_Name.Contains(searchString));
@@ -74,6 +86,26 @@ namespace JooleUI.Controllers
             }
             return View(productList);
         }
+
+        public ActionResult Compare()
+        {
+            return View();
+        }
+
+        public ActionResult Compare(int[] compare)
+        {
+            Service serv = new Service();
+            List<ProductVM> productList = new List<ProductVM>();
+            var de = serv.GetDataSet(null).AsEnumerable();
+            de = de.Where(id => compare.Contains(id.Product_ID));
+            foreach (var product in de)
+            {
+                productList.Add(new ProductVM(product.Product_ID, product.Manufacturer_ID, product.SubCategory_ID,
+                    product.Product_Name, product.Series, product.Model, product.ProductTypeID, product.Characteristics));
+            }
+            return View(productList);
+        }
+
 
         //[HttpPost]
         //[ValidateAntiForgeryToken]

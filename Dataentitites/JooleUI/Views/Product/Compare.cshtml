@@ -1,0 +1,47 @@
+﻿@model IEnumerable<JooleUI.Models.ProductVM>
+
+@{
+    ViewBag.Title = "Compare";
+}
+
+<h2>Compare</h2>
+
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.productID)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.productName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.series)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.model)
+        </th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.productID)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.productName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.series)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.model)
+            </td>
+        </tr>
+    }
+
+</table>
+
+<p>
+    @Html.ActionLink("Go Back", "Summary")
+</p>
