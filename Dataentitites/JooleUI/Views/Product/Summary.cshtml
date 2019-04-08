@@ -1,107 +1,63 @@
 ﻿@model IEnumerable<JooleUI.Models.ProductVM>
-
 @{
     ViewBag.Title = "Summary";
 }
+<style>
 
+    .column {
+        float: left;
+        padding: 10px;
+    }
+
+    .left {
+        width: 25%;
+    }
+
+    .right {
+        width: 75%;
+    }
+</style>
 <br />
 @ViewBag.Message
 <br />
-
-<form>
+<form style="text-align: center;">
     Search for products:
     <input type="text" name="searchString">
     <input type="submit" value="Search!">
 </form>
-
 <br />
-<table class="table">
-    <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.productID)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.manufacturerID)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.subCategoryID)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.productName)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.series)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.model)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.productTypeID)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.characteristics)
-        </th>
-    </tr>
-
-    @foreach (var product in Model)
-    {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => product.productID)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => product.manufacturerID)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => product.subCategoryID)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => product.productName)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => product.series)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => product.model)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => product.productTypeID)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => product.characteristics)
-            </td>
-        </tr>
-    }
-</table>
-<br />
-
-@foreach (var product in Model)
-{
-    <div style="border: 3px solid gray; text-align: center; display: inline-block; width: 200px; height: 400px;">
-        Image goes here.<br />
-        <b>@Html.DisplayFor(modelItem => product.productName)</b><br />
-        <b>@Html.DisplayFor(modelItem => product.series)</b><br />
-        <b>@Html.DisplayFor(modelItem => product.model)</b><br />
-        @Html.DisplayFor(modelItem => product.characteristics)<br />
-        <input type="checkbox" name="compare" value="Compare" /> <b>Compare</b>
-        <button id="addTo">Add to</button>
-    </div>
-}
-
-<div id="header">Header goes here</div>
-<div id="left">
-    <div>Search:<button id="save">Save</button><button id="clear">Clear</button></div>
-    <div><button id="product">Product</button><button id="project">Project</button></div>
-    <div>Product Type</div>
-    <form>
-        Model Year:
-        <input type="text" name="beginningYear"> - <input type="text" name="endingYear">
+<div class="row">
+    <form class="column left" style="background-color:#eee;">
+        <div style="padding-bottom: 5px; border-bottom-style: solid; text-align: center;">Search: <input type="submit" class="btn btn-primary" value="Save"> <button class="btn btn-primary" id="clear">Clear</button></div>
+        <div style="padding-top: 5px; padding-bottom: 5px; border-bottom-style: solid; text-align: center;">Product | Project</div>
+        <div style="padding-top: 5px; padding-bottom: 5px; border-bottom-style: solid;">Product Type</div>
+        <div style="padding-top: 5px; padding-bottom: 5px; border-bottom-style: solid; text-align: center;">
+            Model Year:
+            <input type="text" name="beginningYear" maxlength="4" size="4"> - <input type="text" name="endingYear" maxlength="4" size="4">
+        </div>
+        <div style="padding-top: 5px; padding-bottom: 5px; border-bottom-style: solid;">Technical Specifications</div>
+        <div id="techspec" style="padding-top: 5px;">Technical specifications go here</div>
     </form>
-    <div>Technical Specifications</div>
-    <div id="techspec">Technical specifications go here</div>
+    <div class="column right">
+        <form>
+            @foreach (var product in Model)
+            {
+            <div id="@Html.DisplayFor(modelItem => product.productID)" style="border: 3px solid gray; text-align: center; display: inline-block; width: 200px; height: 400px;" onclick="myFunction(this)">
+                Image goes here.<br />
+                @Html.ActionLink(""+@Html.DisplayFor(modelItem => product.productName)+"", "Summa",  "Home" , new { id = @Html.DisplayFor(modelItem => product.productID) },null)<br />
+                <b>@Html.DisplayFor(modelItem => product.series)</b><br />
+                <b>@Html.DisplayFor(modelItem => product.model)</b><br />
+                @*@foreach (var c in product.characteristics)
+        {
+            @Html.DisplayFor(modelItem => c)<br />
+        }
+        @Html.DisplayFor(modelItem => product.characteristics)<br />*@
+                <input type="checkbox" name="compare" value=@Html.DisplayFor(modelItem => product.productID) /> <b>Compare</b>
+                <input class="btn btn-primary" type="submit" value="Add to">
+            </div>
+            }
+        </form>
+    </div>
 </div>
-<div id="right">
-    <div id="category" /> > <div id="subcategory" />
-    <div id="products">Products go here</div>
-</div>
+
 
