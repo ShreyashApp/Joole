@@ -53,9 +53,7 @@ C:\Users\SVP\Joole\Dataentitites\RepoBLL\bin\EntityFramework.SqlServer.dll
 C:\Users\SVP\Joole\Dataentitites\RepoBLL\bin\JooleRepo.dll
 C:\Users\SVP\Joole\Dataentitites\RepoBLL\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
 C:\Users\SVP\Joole\Dataentitites\RepoBLL\bin\Dataentitites.pdb
-C:\Users\SVP\Joole\Dataentitites\RepoBLL\bin\Dataentitites.dll.config
 C:\Users\SVP\Joole\Dataentitites\RepoBLL\bin\JooleRepo.pdb
-C:\Users\SVP\Joole\Dataentitites\RepoBLL\bin\JooleRepo.dll.config
 C:\Users\SVP\Joole\Dataentitites\RepoBLL\bin\EntityFramework.xml
 C:\Users\SVP\Joole\Dataentitites\RepoBLL\bin\EntityFramework.SqlServer.xml
 C:\Users\SVP\Joole\Dataentitites\RepoBLL\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
@@ -64,3 +62,5 @@ C:\Users\SVP\Joole\Dataentitites\RepoBLL\obj\Debug\RepoBLL.csproj.CoreCompileInp
 C:\Users\SVP\Joole\Dataentitites\RepoBLL\obj\Debug\RepoBLL.csproj.CopyComplete
 C:\Users\SVP\Joole\Dataentitites\RepoBLL\obj\Debug\RepoBLL.dll
 C:\Users\SVP\Joole\Dataentitites\RepoBLL\obj\Debug\RepoBLL.pdb
+C:\Users\SVP\Joole\Dataentitites\RepoBLL\bin\Dataentitites.dll.config
+C:\Users\SVP\Joole\Dataentitites\RepoBLL\bin\JooleRepo.dll.config

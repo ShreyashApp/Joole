@@ -20,6 +20,6 @@ namespace JooleUI.Models
         public string ModelYear { get; internal set; }
         public string Application { get; internal set; }
         public string UseType { get; internal set; }
-        public JObject Object { get; set; }
+        public string Object { get; set; }
     }
 }
