@@ -34,7 +34,7 @@ namespace JooleUI.Controllers
                     if (serv.authentication(temp.Login_Name, temp.User_Password))
                     {
                         Session["userID"] = serv.getSessionID(temp.Login_Name, temp.User_Password);    
-                        return RedirectToAction("Index", "Search");
+                        return RedirectToAction("GridView", "Home");
                     }
                     else
                     {
