@@ -7,128 +7,115 @@
 
 <h2>GridView</h2>
 
-<table class="table" border="1">
-    <tr>
-        <th>
-        </th>
-        @foreach (var item in Model)
-        {
-            <td>
-                @Html.DisplayFor(modelItem => item.Product_Image)
-            </td>
-        }
-    </tr>
-    <tr style="background-color:lightsteelblue">
-        <th>Description</th>
-        @foreach (var item in Model)
-        {
-            <td></td>
-        }
-    </tr>
-    <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.Manufacturer_Name)
-        </th>
-        @foreach (var item in Model)
-        {
-            <td>
-                @Html.DisplayFor(modelItem => item.Manufacturer_Name)
-            </td>
-        }
-    </tr>
-    <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.Product_Name)
-        </th>
-        @foreach (var item in Model)
-        {
-            <td>
-                @Html.DisplayFor(modelItem => item.Product_Name)
-            </td>
-        }
-    </tr>
-    <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.Series)
-        </th>
-        @foreach (var item in Model)
-        {
-            <td>
-                @Html.DisplayFor(modelItem => item.Series)
-            </td>
-        }
-    </tr>
-    <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.Model)
-        </th>
-        @foreach (var item in Model)
-        {
-            <td>
-                @Html.DisplayFor(modelItem => item.Model)
-            </td>
-        }
-    </tr>
-    <tr style="background-color:lightsteelblue">
-        <th>Type</th>
-        @foreach (var item in Model)
-        {
-            <td></td>
-        }
-    </tr>
-    <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.UseType)
-        </th>
-        @foreach (var item in Model)
-        {
-            <td>
-                @Html.DisplayFor(modelItem => item.UseType)
-            </td>
-        }
-    </tr>
-    <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.Application)
-        </th>
-        @foreach (var item in Model)
-        {
-            <td>
-                @Html.DisplayFor(modelItem => item.Application)
-            </td>
-        }
-    </tr>
-    <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.MountingLocation)
-        </th>
-        @foreach (var item in Model)
-        {
-            <td>
-                @Html.DisplayFor(modelItem => item.MountingLocation)
-            </td>
-        }
-    </tr>
-    <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.ModelYear)
-        </th>
-        @foreach (var item in Model)
-        {
-            <td>
-                @Html.DisplayFor(modelItem => item.ModelYear)
-            </td>
-        }
-    </tr>
-    <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.Charecteristics)
-        </th>
-        @foreach (var item in Model)
-        {
-            <td>
-                @Html.DisplayFor(modelItem => item.Charecteristics)
-            </td>
-        }
-    </tr>
-</table>
+
+
+<input id="btnGet" type="button" name=" submit"/>
+
+<table class="table" id="table" border="1"  >
+		<tbody>
+		</tbody>
+		</table>	
+	
+
+@section scripts{
+<script>
+            $("#btnGet").click(function () {
+                console.log("Hellowthere");
+                $.ajax({
+                    type: "POST",
+                    url: "/Home/Black",
+                    data: "",
+                    contentType: "application/json; charset=utf-8",
+                    dataType: "json",
+                    success: function (response) {
+                        var i = 0;
+                        var dats = JSON.parse(response);
+                        i = i + 1;
+                        $("tbody").append("<tr id='th" + i + "'><td></td></tr>");
+                        $.each(dats, function (key, val) {
+                            $("#th" + i).append("<td colspan='2' id = 'tdf'>" + val.Product_Image + "</td>");
+                        });
+                        $("tbody").append("<tr id='thz'><th>Description</th></tr>");
+                        i = i + 1;
+                        $("tbody").append("<tr id='th" + i + "'><th>Product_Name</th></tr>");
+                        $.each(dats, function (key, val) {
+                            $("#th" + i).append("<td colspan='2' id = 'tdf'>" + val.Product_Name + "</td>");
+
+                        });
+                        i = i + 1;
+                        $("tbody").append("<tr id='th" + i + "'><th>Series</th></tr>");
+                        $.each(dats, function (key, val) {
+                            $("#th" + i).append("<td colspan='2' id = 'tdf'>" + val.Series + "</td>");
+                        });
+                        i = i + 1;
+                        $("tbody").append("<tr id='th" + i + "'><th>Manufacturer Name</th></tr>");
+                        $.each(dats, function (key, val) {
+                            $("#th" + i).append("<td colspan='2' id = 'tdf'>" + val.Manufacturer_Name + "</td>");
+                        });
+                        $("tbody").append("<tr  id='thy'><th>Technical Specification</th></tr>");
+                        i = i + 1;
+                        $.each(dats, function (key, val) {
+                            var ks = 0;
+                            var obs = JSON.parse(val.Object);
+                            $.each(obs, function (keys, vale) {
+                                if ($("#" + ks).length==0)
+                                $("tbody").append("<tr id='" + ks + "'><th>"+keys+"</th></tr>");
+                                var j = 0;
+                                if (obs[keys].length > 1) {
+                                    while (j < obs[keys].length) {
+                                        $('#' + ks).append("<td id = 'tdf'>" + obs[keys][j] + "</td>");
+                                        j++;
+                                        console.log(obs[keys]);
+                                    }
+                                } else {
+                                    $('#' + ks).append("<td colspan='2' id = 'tdf'>" + obs[keys] + "</td>");
+                                }
+                                ks = ks + 1;
+
+                            });
+                        });
+                        i = i + 1;
+                        $("tbody").append("<tr id='th" + i + "'><th>Model</th><tr>");
+                        $.each(dats, function (key, val) {
+                            $("#th" + i).append("<td colspan='2' id = 'tdf'>" + val.Model + "</td>");
+                        });
+                        i = i + 1;
+                        $("tbody").append("<tr id='th" + i + "'><th>Manufacturer Name</th><tr>");
+                        $.each(dats, function (key, val) {
+                            $("#th" + i).append("<td colspan='2' id = 'tdf'>" + val.ModelYear + "</td>");
+                        });
+                        i = i + 1;
+                        $("tbody").append("<tr id='th" + i + "'><th>Manufacturer Name</th></tr>");
+                        $.each(dats, function (key, val) {
+                            $("#th" + i).append("<td colspan='2' id = 'tdf'>" + val.Application + "</td>");
+                        });
+                        i = i + 1;
+                        $("tbody").append("<tr id='th" + i + "'><th>Manufacturer Name</th></tr>");
+                        $.each(dats, function (key, val) {
+                            $("#th" + i).append("<td colspan='2' id = 'tdf'>" + val.MountingLocation + "</td>");
+                        });
+                        i = i + 1;
+                        $("tbody").append("<tr id='th" + i + "'><th>Manufacturer Name</th></tr>");
+                        $.each(dats, function (key, val) {
+                            $("#th" + i).append("<td colspan='2' id = 'tdf'>" + val.UseType + "</td>");
+                        });
+                        console.log(response + "Hello");
+                    },
+                    failure: function (response) {
+                        console.log(response + "Hello1");
+                    },
+                    error: function (response) {
+                        console.log(response + "Hello2");
+                        var dats = JSON.parse(response);
+                        $.each(dats, function (key, val) {
+                            $("tbody").append("<tr><td id = 'tdf" + i + "'>" +val.Product_ID  + "</td>" +
+                                "<td id = 'tdl" + i + "'>" + val.Manufacturer_Name + "</td>" +
+                                "<td id = 'tde" + i + "'>" + val.Series + "</td>" +
+                                "<td id = 'tdlo" + i + "'>" + val.Model + "</td></tr>");
+                        });
+                    }
+                });
+            });
+       
+</script>
+    }
