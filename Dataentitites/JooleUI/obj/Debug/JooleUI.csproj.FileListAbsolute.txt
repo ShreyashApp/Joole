@@ -1,5 +1,3 @@
-C:\Users\SVP\Joole\Dataentitites\JooleUI\obj\Debug\JooleUI.csprojAssemblyReference.cache
-C:\Users\SVP\Joole\Dataentitites\JooleUI\obj\Debug\JooleUI.csproj.CoreCompileInputs.cache
 C:\Users\SVP\Joole\Dataentitites\JooleUI\bin\JooleUI.dll.config
 C:\Users\SVP\Joole\Dataentitites\JooleUI\bin\JooleUI.dll
 C:\Users\SVP\Joole\Dataentitites\JooleUI\bin\JooleUI.pdb
@@ -77,6 +75,8 @@ C:\Users\SVP\Joole\Dataentitites\JooleUI\bin\Services.dll.config
 C:\Users\SVP\Joole\Dataentitites\JooleUI\bin\EntityFramework.xml
 C:\Users\SVP\Joole\Dataentitites\JooleUI\bin\EntityFramework.SqlServer.xml
 C:\Users\SVP\Joole\Dataentitites\JooleUI\bin\Json.pdb
+C:\Users\SVP\Joole\Dataentitites\JooleUI\bin\Newtonsoft.Json.pdb
+C:\Users\SVP\Joole\Dataentitites\JooleUI\bin\Newtonsoft.Json.xml
 C:\Users\SVP\Joole\Dataentitites\JooleUI\bin\System.Web.Helpers.xml
 C:\Users\SVP\Joole\Dataentitites\JooleUI\bin\System.Web.Mvc.xml
 C:\Users\SVP\Joole\Dataentitites\JooleUI\bin\System.Web.Optimization.xml
@@ -84,7 +84,6 @@ C:\Users\SVP\Joole\Dataentitites\JooleUI\bin\System.Web.Razor.xml
 C:\Users\SVP\Joole\Dataentitites\JooleUI\bin\System.Web.WebPages.xml
 C:\Users\SVP\Joole\Dataentitites\JooleUI\bin\System.Web.WebPages.Deployment.xml
 C:\Users\SVP\Joole\Dataentitites\JooleUI\bin\System.Web.WebPages.Razor.xml
-C:\Users\SVP\Joole\Dataentitites\JooleUI\bin\Newtonsoft.Json.xml
 C:\Users\SVP\Joole\Dataentitites\JooleUI\bin\Antlr3.Runtime.pdb
 C:\Users\SVP\Joole\Dataentitites\JooleUI\bin\System.Diagnostics.DiagnosticSource.xml
 C:\Users\SVP\Joole\Dataentitites\JooleUI\bin\Microsoft.AspNet.TelemetryCorrelation.xml
@@ -93,6 +92,8 @@ C:\Users\SVP\Joole\Dataentitites\JooleUI\bin\RepoBLL.pdb
 C:\Users\SVP\Joole\Dataentitites\JooleUI\bin\RepoBLL.dll.config
 C:\Users\SVP\Joole\Dataentitites\JooleUI\bin\JooleRepo.pdb
 C:\Users\SVP\Joole\Dataentitites\JooleUI\bin\JooleRepo.dll.config
+C:\Users\SVP\Joole\Dataentitites\JooleUI\obj\Debug\JooleUI.csprojAssemblyReference.cache
+C:\Users\SVP\Joole\Dataentitites\JooleUI\obj\Debug\JooleUI.csproj.CoreCompileInputs.cache
 C:\Users\SVP\Joole\Dataentitites\JooleUI\obj\Debug\JooleUI.csproj.CopyComplete
 C:\Users\SVP\Joole\Dataentitites\JooleUI\obj\Debug\JooleUI.dll
 C:\Users\SVP\Joole\Dataentitites\JooleUI\obj\Debug\JooleUI.pdb

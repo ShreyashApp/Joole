@@ -14,6 +14,7 @@ namespace RepoBLL
 
         IProductType prodtype { get; }
         IProduct products { get; }
+        IType types { get; }
     }
 
     public class UnitofWork: DbContext,Iunitofwork
@@ -31,5 +32,7 @@ namespace RepoBLL
 
         public IProductType prodtype => new ProductTypeRepo(context);
         public IProduct products => new ProductRepo(context);
+        public IType types => new TypeRepo(context);
+
     }
 }
