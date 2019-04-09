@@ -17,7 +17,7 @@ namespace RepoBLL
 
     public interface ISearchtblSubCategory : IRepo<tblSubCategory>
     {
-        IEnumerable<tblSubCategory> GetListSubCategory();
+        IEnumerable<tblSubCategory> getSubCategoBasedOnCatego(int categoryID);
     }
 
     public class SearchRepo : ISearchtblCategory, ISearchtblSubCategory
@@ -37,15 +37,17 @@ namespace RepoBLL
         private List<tblCategory> CategoriesList => Context.Set<tblCategory>().ToList();
         private List<tblSubCategory> subCategoriesList => Context.Set<tblSubCategory>().ToList();
 
+        IQueryable<tblCategory> IRepo<tblCategory>.Entities => throw new NotImplementedException();
+
         public IEnumerable<tblCategory> GetListCategory()
         {
 
             return CategoriesList;
         }
 
-        public IEnumerable<tblSubCategory> GetListSubCategory()
+        public IEnumerable<tblSubCategory> getSubCategoBasedOnCatego(int categoryID)
         {
-            return subCategoriesList;
+            return subCategoriesList.Where(p => p.Category_ID == categoryID);
         }
 
         public IEnumerable<tblCategory> find(tblCategory v)
@@ -60,46 +62,42 @@ namespace RepoBLL
             return filteredList;
         }
 
-        
-
-        public IQueryable<tblCategory> DataSet(string s)
+        void IRepo<tblCategory>.remove(tblCategory entity)
         {
             throw new NotImplementedException();
         }
 
-        
-
-        public tblCategory Find(int v)
+        tblCategory IRepo<tblCategory>.Find(int v)
         {
             throw new NotImplementedException();
         }
 
-        public IEnumerable<tblCategory> GetList()
+        string IRepo<tblCategory>.Search(string s)
         {
-            return CategoriesList;
+            throw new NotImplementedException();
         }
 
-        IEnumerable<tblSubCategory> ISearchtblSubCategory.GetList()
-        {
-            return subCategoriesList;
-        
-        public void remove(tblCategory entity)
+        IQueryable<tblCategory> IRepo<tblCategory>.DataSet(string s)
         {
             throw new NotImplementedException();
         }
-        public void remove(tblSubCategory entity)
+
+        void IRepo<tblSubCategory>.remove(tblSubCategory entity)
         {
             throw new NotImplementedException();
         }
-        public string Search(string s)
-        {
-            throw new NotImplementedException();
-        }
-        IQueryable<tblSubCategory> IRepo<tblSubCategory>.DataSet(string s)
-        {
-            throw new NotImplementedException();
-        }
+
         tblSubCategory IRepo<tblSubCategory>.Find(int v)
+        {
+            throw new NotImplementedException();
+        }
+
+        string IRepo<tblSubCategory>.Search(string s)
+        {
+            throw new NotImplementedException();
+        }
+
+        IQueryable<tblSubCategory> IRepo<tblSubCategory>.DataSet(string s)
         {
             throw new NotImplementedException();
         }
