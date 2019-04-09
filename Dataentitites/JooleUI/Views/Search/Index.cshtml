@@ -1,8 +1,61 @@
 ﻿
 @{
-    ViewBag.Title = "Index";
+    ViewBag.Title = "Search";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>Search Engin herer</h2>
+<div>
 
+
+    @using (@Html.BeginForm())
+    {
+        @Html.DropDownList("Category", null, "", new { @onChange = "check(this)" })
+
+        <input type="text" id="searchBox" name="searchQuery" />
+
+
+
+        <input type="submit" value="Search" />
+    }
+    <!-- the code should go around here, geting data from viewbag, and creating sublist, and then getting the last thing after the user put some query in the search box and click on search-->
+
+    @section scripts{
+
+        <script type="text/javascript" language="javascript">
+            //console.log("Hellowthere");
+            //var idPAss;
+            //function check(id) {
+                //idPAss = $(id).val();
+                //console.log(idPAss);
+            //}
+            $(document).ready(function () {
+                //console.log(idPAss);
+                $("#searchBox").autocomplete({
+
+                    source: function (request, response) {
+                        var dat = JSON.stringify({
+                            'Category': $("#Category").val(),
+                            'searchBox': $("#searchBox").val()
+                        });
+                        $.ajax({
+                            type: 'POST',
+                            data: {
+                                //Category: idPAss.name
+                                data: dat
+                            },
+
+                            url: '@Url.Action("Autocomplete", "Search")',
+                            dataType: "jsonp",
+                            contentType: "application/json",
+                            success: function (data) {
+                                response(data);
+                            }
+                        });
+                    },
+                    minLength: 1
+                });
+            });
+
+        </script>
+    }
+</div>

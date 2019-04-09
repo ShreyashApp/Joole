@@ -34,8 +34,9 @@ namespace JooleUI.Controllers
                     if (serv.authentication(temp.Login_Name, temp.User_Password))
                     {
                         Session["userID"] = serv.getSessionID(temp.Login_Name, temp.User_Password);
-                        return RedirectToAction("Summary", "Product");
-                    }
+                    //return RedirectToAction("Summary", "Product");
+                    return RedirectToAction("Index", "Search");
+                }
                     else
                     {
                         temp.LoginErrorMessage = "Incrrect username or password.";

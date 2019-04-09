@@ -78,6 +78,7 @@
   <ItemGroup>
     <Compile Include="ManufacturerRepo.cs" />
     <Compile Include="ProductTypeRepo.cs" />
+    <Compile Include="SearchRepo.cs" />
     <Compile Include="UserRepo.cs" />
     <Compile Include="ProductRepo.cs" />
     <Compile Include="TypeRepo.cs" />

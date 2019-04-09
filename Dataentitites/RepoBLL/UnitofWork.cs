@@ -27,6 +27,8 @@ namespace RepoBLL
         }
 
         public IUser users => new UserRepo(context);
+        public ISearchtblCategory categorySearch => new SearchRepo(context);
+        public ISearchtblSubCategory subCategorySearch => new SearchRepo(context);
 
         public IManufacturer manu => new ManufacturerRepo(context);
 
