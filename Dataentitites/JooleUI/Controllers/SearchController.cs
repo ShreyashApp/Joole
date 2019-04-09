@@ -118,8 +118,19 @@ namespace JooleUI.Controllers
             {
                 filteredItems.Add(temp.SubCategory_Name);
             }
-            filteredItems.Where(item => filteredItems.Contains(term));
-            var chak = JsonConvert.SerializeObject(filteredItems);
+            filteredItems.Contains(term);
+            List<string> filt = new List<string>();
+            
+            foreach(var vals in filteredItems)
+            {
+                string normal = vals.ToLower();
+                if (normal.Contains(term.ToLower()))
+                {
+                    filt.Add(vals);
+                }
+            } 
+
+            var chak = JsonConvert.SerializeObject(filt);
 
             return Json(chak, JsonRequestBehavior.AllowGet);
         }
