@@ -4,6 +4,8 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using JooleUI.Models;
+using Newtonsoft.Json;
+using Services;
 
 namespace JooleUI.Controllers
 {
@@ -107,19 +109,19 @@ namespace JooleUI.Controllers
         }
 
 
-        [HttpPost]
-        public ActionResult Autocomplete(string term, string Category)
+        public JsonResult Autocomplete(string term,string Category)
         {
-            //var items = new[] { "Apple", "Pear", "Banana", "Pineapple", "Peach" };
             List<string> filteredItems = new List<string>();
+            Service serv = new Service();
 
-            foreach (var temp in new Services.Service().GetSubCategories(Int32.Parse(Category)))
+            foreach (var temp in serv.GetSubCategories(Int32.Parse(Category)))
             {
                 filteredItems.Add(temp.SubCategory_Name);
             }
             filteredItems.Where(item => filteredItems.Contains(term));
+            var chak = JsonConvert.SerializeObject(filteredItems);
 
-            return Json(filteredItems, JsonRequestBehavior.AllowGet);
+            return Json(chak, JsonRequestBehavior.AllowGet);
         }
     }
 }
