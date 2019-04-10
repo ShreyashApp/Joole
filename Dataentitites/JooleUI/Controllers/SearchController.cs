@@ -4,6 +4,8 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using JooleUI.Models;
+using Newtonsoft.Json;
+using Services;
 
 namespace JooleUI.Controllers
 {
@@ -65,17 +67,17 @@ namespace JooleUI.Controllers
         }
 
         [HttpPost]
-        public ActionResult Index(string SearchQuery, string Category)
+        public ActionResult Index(string term, string Category)
         {
-            if (string.IsNullOrEmpty(SearchQuery))
+            if (string.IsNullOrEmpty(term))
             {
                 //search based on the category
-                return RedirectToAction("Summary", "Product", SearchQuery);
+                return RedirectToAction("Summary", "Product",new { searchString = term });
 
             }
             else
             {
-                return RedirectToAction("Summary", "Product", SearchQuery);
+                return RedirectToAction("Summary", "Product", new { searchString = term });
                 /*
                 List<string> asdf = new List<string>();
                 foreach (var temp in new Services.Service().GetSubCategories(Int32.Parse(Category)))
@@ -107,19 +109,36 @@ namespace JooleUI.Controllers
         }
 
 
-        [HttpPost]
-        public ActionResult Autocomplete(string term, string Category)
+        public JsonResult Autocomplete(string term,string Category)
         {
-            //var items = new[] { "Apple", "Pear", "Banana", "Pineapple", "Peach" };
             List<string> filteredItems = new List<string>();
+            Service serv = new Service();
+            if (Category == "")
+            {
 
-            foreach (var temp in new Services.Service().GetSubCategories(Int32.Parse(Category)))
+                var cha1k = JsonConvert.SerializeObject(filteredItems);
+
+                return Json(cha1k, JsonRequestBehavior.AllowGet);
+            }
+            foreach (var temp in serv.GetSubCategories(Int32.Parse(Category)))
             {
                 filteredItems.Add(temp.SubCategory_Name);
             }
-            filteredItems.Where(item => filteredItems.Contains(term));
+            filteredItems.Contains(term);
+            List<string> filt = new List<string>();
+            
+            foreach(var vals in filteredItems)
+            {
+                string normal = vals.ToLower();
+                if (normal.Contains(term.ToLower()))
+                {
+                    filt.Add(vals);
+                }
+            } 
 
-            return Json(filteredItems, JsonRequestBehavior.AllowGet);
+            var chak = JsonConvert.SerializeObject(filt);
+
+            return Json(chak, JsonRequestBehavior.AllowGet);
         }
     }
 }

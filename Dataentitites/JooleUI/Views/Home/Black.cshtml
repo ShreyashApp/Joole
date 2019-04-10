@@ -10,11 +10,24 @@
         background-color:ghostwhite
     }
 </style>
-<div style="background-color:white">
-    <h2>Product Compare</h2>
-    <table class="table" id="table" border="1">
-        <tbody></tbody>
-    </table>
+<div class="container-fluid" style="padding:0px">
+    <div style="margin-top:1%;background:linear-gradient(blue,white);padding-bottom:20px" class="row">
+        <img src="~/Images/Joole.png" style="float:left;width:200px" />
+        <div style="margin-top:20px;">
+            @using (@Html.BeginForm())
+            {
+                @Html.DropDownList("Category", null, "", new { @class = "btn btn-secondary dropdown-toggle" })
+                <input id="searchBox" style="width:250px" name="term" />
+                <input type="submit" value="Search" class="btn btn-primary" />
+            }
+        </div>
+    </div>
+    <div style="background-color:white;">
+        <h2 style="margin-top:0px">Product Compare</h2>
+        <table class="table" id="table" border="1">
+            <tbody></tbody>
+        </table>
+    </div>
 </div>
 @section scripts{
     <script>
