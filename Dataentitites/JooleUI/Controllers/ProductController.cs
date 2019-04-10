@@ -59,14 +59,6 @@ namespace JooleUI.Controllers
             Service serv = new Service();
             string vals = "";
 
-            //if (String.IsNullOrEmpty(searchString))
-            //{
-            //    vals = "Available products: " + serv.ProductValue();
-            //}
-            //else
-            //{
-            //    vals = "Products found: " + serv.ProductSearch(searchString);
-            //}
             ViewBag.Message = vals;
 
             List <ProductVM> productList = new List<ProductVM>();
