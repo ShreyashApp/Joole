@@ -44,14 +44,17 @@
             </div>
     </div>
     <div class="row" >
-        <div class="col-md-3" style="background-color:ghostwhite;padding:0px;" >
+        <div class="col-md-3" style="background-color:ghostwhite;padding-bottom:10px;padding-top:10px;" >
             <form>
                 <div style="padding-bottom: 5px; padding-top:5px; text-align: center;border:1px solid grey">Search: <input type="submit" style="margin-left:20px" class="btn-primary" value="Save"> <button style="margin-left:10px;" class="btn-primary" id="clear">Clear</button></div>
                 <div style="padding-top: 1px; padding-bottom: 1px; text-align: center;border:1px solid grey">Product | Project</div>
-                <div style="padding-top: 1px; padding-bottom: 1px; border:1px solid grey">Product Type</div>
+                <div style="padding-top: 1px; padding-bottom: 1px; border:1px solid grey">
+                Product Type
+                <br/>
+                @Html.DropDownList("productType", (IEnumerable<SelectListItem>)ViewBag.ProductTypes, "Product Type")</div>
                 <div style="padding-top: 1px; padding-bottom: 1px;text-align: center;border:1px solid grey">
                     Model Year:
-                    <input type="text" name="beginningYear" style="margin-left:10px" maxlength="4" size="4"> - <input type="text"  style="margin-left:10px"  name="endingYear" maxlength="4" size="4">
+                    <input type="text" name="beginningYear" style="margin-left:10px" maxlength="4" size="4"> - <input type="text" style="margin-left:10px" name="endingYear" maxlength="4" size="4">
                 </div>
                 <div style="padding-top: 1px; padding-bottom: 1px;border:1px solid grey">Technical Specifications</div>
                 <div style="padding-top: 1px;border:1px solid grey"></div>
@@ -141,24 +144,27 @@
                 </script>
             }
         </div>
-        <form style=" float:left;">
-            @foreach (var product in Model)
-            {
-                <div id="@Html.DisplayFor(modelItem => product.productID)" style="margin-left:10px;margin-top:10px;border: 3px solid gray; text-align: center; display: inline-block; width: 200px; height: 400px;" onclick="myFunction(this)">
-                    Image goes here.<br />
-                    <b> @Html.ActionLink("" + @Html.DisplayFor(modelItem => product.productName) + "", "Summa", "Home", new { id = @Html.DisplayFor(modelItem => product.productID) }, new { @class = "my-class" })</b>
-                    <br />
-                    <b>@Html.DisplayFor(modelItem => product.series)</b><br />
-                    <b>@Html.DisplayFor(modelItem => product.model)</b><br />
-                    @*@foreach (var c in product.characteristics)
+        <div class="col-md-9" >
+            <form style=" padding:5px">
+                @foreach (var product in Model)
                 {
-                    @Html.DisplayFor(modelItem => c)<br />
+                    <div id="@Html.DisplayFor(modelItem => product.productID)" style="float:left;margin-left:10px;margin-top:10px;border: 3px solid gray; text-align: center; display: inline-block; width: 200px; height: 400px;" onclick="myFunction(this)">
+                        <img src="/Images/fan'@product.productID'.jpg" style="width:80px;height:60px">
+                        <br />
+                        <b> @Html.ActionLink("" + @Html.DisplayFor(modelItem => product.productName) + "", "Summa", "Home", new { id = @Html.DisplayFor(modelItem => product.productID) }, new { @class = "my-class" })</b>
+                        <br />
+                        <b>@Html.DisplayFor(modelItem => product.series)</b><br />
+                        <b>@Html.DisplayFor(modelItem => product.model)</b><br />
+                        @*@foreach (var c in product.characteristics)
+                    {
+                        @Html.DisplayFor(modelItem => c)<br />
+                    }
+                    @Html.DisplayFor(modelItem => product.characteristics)<br />*@
+                        <input type="checkbox" name="compare" value=@Html.DisplayFor(modelItem => product.productID) /> <b>Compare</b>
+                        <input class="btn btn-primary" type="submit" value="Add to">
+                    </div>
                 }
-                @Html.DisplayFor(modelItem => product.characteristics)<br />*@
-                    <input type="checkbox" name="compare" value=@Html.DisplayFor(modelItem => product.productID) /> <b>Compare</b>
-                    <input class="btn btn-primary" type="submit" value="Add to">
-                </div>
-            }
-        </form>
+            </form>
         </div>
+    </div>
 </div>

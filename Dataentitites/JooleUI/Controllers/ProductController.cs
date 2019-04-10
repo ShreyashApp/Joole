@@ -54,23 +54,17 @@ namespace JooleUI.Controllers
 
         }
 
-        public ActionResult Summary(string searchString, string beginningYear, string endingYear, int[] compare)
+        public ActionResult Summary(string searchString, int? productType, string beginningYear, string endingYear, int[] compare)
         {
             Service serv = new Service();
             string vals = "";
 
-            //if (String.IsNullOrEmpty(searchString))
-            //{
-            //    vals = "Available products: " + serv.ProductValue();
-            //}
-            //else
-            //{
-            //    vals = "Products found: " + serv.ProductSearch(searchString);
-            //}
             ViewBag.Message = vals;
 
             List <ProductVM> productList = new List<ProductVM>();
             var de = serv.GetDataSet(null).AsEnumerable();
+            List<int> typeList = new List<int>();
+
             var tde = serv.GetTypeDataSet(null).AsEnumerable();
             if (compare != null && compare.Length > 0)
             {
@@ -81,12 +75,28 @@ namespace JooleUI.Controllers
                // return View("Comps",Black(compare));
                return RedirectToAction("Black","Home");
             }
+            foreach (var product in de)
+            {
+                typeList.Add(product.ProductTypeID);
+            }
+
+            ViewBag.ProductTypes = new SelectList(typeList);
+
 
             if (!String.IsNullOrEmpty(searchString))
             {
                 de = de.Where(product => product.Product_Name.Contains(searchString));
                 //de = serv.GetDataSet(searchString);
             }
+
+            if (productType > 0)
+            {
+                //System.Diagnostics.Debug.WriteLine(productType);
+                de = from p in de
+                     where p.ProductTypeID == productType
+                     select p;
+            }
+
 
             if (!String.IsNullOrEmpty(beginningYear) && !String.IsNullOrEmpty(endingYear))
             {
