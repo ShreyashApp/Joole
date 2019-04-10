@@ -14,7 +14,7 @@
         <h3>Building Product Selection Platform</h3>
         @Html.DropDownList("Category", null, "", new {  @class="btn btn-secondary dropdown-toggle" })
 
-        <input id="searchBox" style="width:250px" name="term"/>
+        <input type="search" id="searchBox" style="width:250px" name="term"/>
         <input type="submit" value="Search" class="btn btn-primary" />
     }
     <!-- the code should go around here, geting data from viewbag, and creating sublist, and then getting the last thing after the user put some query in the search box and click on search-->
