@@ -67,17 +67,17 @@ namespace JooleUI.Controllers
         }
 
         [HttpPost]
-        public ActionResult Index(string SearchQuery, string Category)
+        public ActionResult Index(string term, string Category)
         {
-            if (string.IsNullOrEmpty(SearchQuery))
+            if (string.IsNullOrEmpty(term))
             {
                 //search based on the category
-                return RedirectToAction("Summary", "Product", SearchQuery);
+                return RedirectToAction("Summary", "Product",new { searchString = term });
 
             }
             else
             {
-                return RedirectToAction("Summary", "Product", SearchQuery);
+                return RedirectToAction("Summary", "Product", new { searchString = term });
                 /*
                 List<string> asdf = new List<string>();
                 foreach (var temp in new Services.Service().GetSubCategories(Int32.Parse(Category)))
@@ -113,7 +113,13 @@ namespace JooleUI.Controllers
         {
             List<string> filteredItems = new List<string>();
             Service serv = new Service();
+            if (Category == "")
+            {
 
+                var cha1k = JsonConvert.SerializeObject(filteredItems);
+
+                return Json(cha1k, JsonRequestBehavior.AllowGet);
+            }
             foreach (var temp in serv.GetSubCategories(Int32.Parse(Category)))
             {
                 filteredItems.Add(temp.SubCategory_Name);
