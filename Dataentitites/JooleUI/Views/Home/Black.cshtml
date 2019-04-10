@@ -31,6 +31,39 @@
 </div>
 @section scripts{
     <script>
+          $("#searchBox").autocomplete({
+                    source: function (request, response) {
+                        var dat = JSON.stringify({
+                            'term': $("#searchBox").val(),
+                            'Category': $("#Category").val(),
+
+                        });
+                        $.ajax({
+                            data: {
+                                'term': $("#searchBox").val(),
+                                'Category': $("#Category").val()
+                            },
+                            url: '@Url.Action("Autocomplete","Search")',
+                            dataType: "json",
+                            contentType: "application/json;charset=utf-8",
+                            success: function (data) {
+                                var parsed = JSON.parse(data);
+                                var newArray = [];
+                                var i = 0;
+                                $.each(parsed, function (key, val) {
+                                    newArray[i] = val;
+                                    i++;
+                                });
+                                console.log(newArray);
+                                response(newArray);
+                            },
+                            error: response
+                        });
+                        console.log(response);
+                    },
+                    minLength: 1
+                });
+
         $(document).ready(function () {
             $.ajax({
                 type: "POST",
